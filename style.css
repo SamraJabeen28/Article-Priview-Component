@@ -193,8 +193,8 @@ body {
   to {opacity:1 ;}
 }
 
-/* 630px switch to mobile design */
-@media (max-width: 800px) {
+/* 375px switch to mobile design */
+@media (max-width: 750px) {
   .container {
     flex-direction: column;
     width: 330px;
