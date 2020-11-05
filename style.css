@@ -1,0 +1,249 @@
+:root {
+  --VeryDarkGrayishBlue: hsl(217, 19%, 35%);
+  --DesaturatedDarkBlue: hsl(214, 17%, 51%);
+  --GrayishBlue: hsl(212, 23%, 69%);
+  --LightGrayishBlue: hsl(210, 46%, 95%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--LightGrayishBlue);
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 729px;
+  height: 279px;
+  margin: auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px 0px var(--GrayishBlue);
+}
+
+.container > img {
+  width: 285px;
+  height: 279px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  object-fit: cover;
+  object-position: 0% 0%;
+}
+
+.content {
+  background: white;
+  margin: 10px 15px;
+  padding: 0 20px;
+}
+
+.content h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  letter-spacing: 1.5px;
+  color: var(--VeryDarkGrayishBlue);
+}
+
+.content p {
+  font-size: smaller;
+  margin: 0 auto 10px;
+  padding-bottom: 10px;
+  line-height: 1.6;
+  color: var(--DesaturatedDarkBlue);
+}
+
+.author {
+  display: flex;
+  justify-content: space-between;
+}
+
+.author-info {
+  display: flex;
+}
+
+.author-info > img {
+  width: 41px;
+  height: 41px;
+  border-radius: 50%;
+}
+
+.author-name {
+  margin-left: 20px;
+}
+
+.author-name h6 {
+  color: var(--VeryDarkGrayishBlue);
+  font-size: smaller;
+}
+
+.author-name p {
+  color: var(--GrayishBlue);
+}
+
+.popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: var(--LightGrayishBlue);
+  color: var(--VeryDarkGrayishBlue);
+  width: 34px;
+  height: 34px;
+  position: relative;
+  cursor: pointer;
+}
+
+
+.popup:active {
+  cursor: pointer;
+  color:white;
+  background: var(--VeryDarkGrayishBlue);
+}
+
+
+/* Popup container - can be anything you want */
+/*
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+*/
+
+/* The actual popup */
+.popuptext {
+  visibility: hidden;
+  width: 240px;
+  background-color: var(--VeryDarkGrayishBlue);
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 170%;
+  left: 50%;
+  margin-left: -120px;
+  letter-spacing: 4px;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popuptext .share {
+  font-size: small;
+  color: var(--GrayishBlue);
+  margin-right: 15px;
+}
+
+.fab {
+  margin-right: 10px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--VeryDarkGrayishBlue) transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+.selected {
+  color:white;
+  background: var(--VeryDarkGrayishBlue);
+
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+/* 630px switch to mobile design */
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    width: 330px;
+    height: 513px;
+    margin: 0;
+    justify-content: start;
+  }
+
+  .container > img {
+    width: 330px;
+    height: 201px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0;
+  }
+
+  .content {
+    margin: 10px 10px 0px;
+  }
+
+  .content h2 {
+    font-size: 1.0rem;
+    margin: 20px 0;
+    letter-spacing: 0.5px;
+  }
+
+  .content p {
+    font-size: 0.9rem;
+    margin: 0 auto 10px;
+  }
+  
+  .selected {
+    color: white;
+    z-index: 2;
+  }
+
+  .popuptext {
+    width: 330px;
+    height: 65px;
+    margin-left: -283px;
+    padding-left: 30px;
+    bottom: -80%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    justify-content: left;
+  }
+
+  .popuptext::after {
+    display: none;
+  }
+
+
+}
